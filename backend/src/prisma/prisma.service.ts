@@ -18,7 +18,6 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
             ? {
                 ca: fs.readFileSync(caPath, "utf8"),
                 rejectUnauthorized: true,
-                // ensures SNI matches your RDS hostname
                 servername: new URL(url).hostname,
             }
             : undefined;
