@@ -1,18 +1,25 @@
 services:
-  frontend:
-    build: ./frontend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    working_dir: /workspace/backend
     volumes:
-      - ./frontend:/app
-      - /app/node_modules
+      - ./:/workspace
+    env_file:
+      - ./backend/.env
+    ports:
+      - "3001:3000"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    working_dir: /workspace/frontend
+    volumes:
+      - ./:/workspace
     ports:
       - "3000:3000"
     depends_on:
       - backend
-
-  backend:
-    build: ./backend
-    volumes:
-      - ./backend:/app
-      - /app/node_modules
-    ports:
-      - "3001:3000"
+    command: sh -lc "yarn install --frozen-lockfile && yarn dev"
