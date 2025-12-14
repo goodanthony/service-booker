@@ -1,6 +1,6 @@
 # ServiceBooker
 
-A full-stack booking platform (Next.js + NestJS) where service providers publish availability and customers book time slots (with double-booking protection).
+Next.js + NestJS boilerplate with PostgreSQL (Prisma ORM) and Docker support.
 
 ## Stack
 

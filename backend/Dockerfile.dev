@@ -1,0 +1,6 @@
+FROM node:22
+
+WORKDIR /workspace/backend
+EXPOSE 3000
+
+CMD ["sh", "-lc", "yarn install --frozen-lockfile && yarn prisma:generate && yarn start:dev"]

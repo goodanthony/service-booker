@@ -61,3 +61,5 @@ src/generated/prisma/
 *.tsbuildinfo
 
 certs/
+
+/src/generated/prisma/
